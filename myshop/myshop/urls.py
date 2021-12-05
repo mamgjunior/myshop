@@ -18,8 +18,11 @@ from django.urls import path, include
 from django.conf import Settings, settings
 from django.conf.urls.static import static
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
+urlpatterns = [    
+    path('admin/', admin.site.urls),    
+    path('cart/', include('cart.urls', namespace='cart')),
+
+    # Os padrões de urls acima são mais restritivos que esse por esse motivo estão acima
     path('', include('shop.urls', namespace='shop')),
 ]
 
